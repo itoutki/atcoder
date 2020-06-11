@@ -10,13 +10,14 @@ public class Main {
         int M = scanner.nextInt();
 
         int[] H = new int[N + 1];
-        boolean[] results = new boolean[N + 1];
+        int[] maxH = new int [N + 1];
+
         Map<Integer, Set<Integer>> map = new HashMap<>();
 
         for (int i = 1 ; i <= N ; i++) {
             H[i] = scanner.nextInt();
             map.put(i, new HashSet<>());
-            results[i] = true;
+            maxH[i] = 0;
         }
 
 
@@ -24,30 +25,17 @@ public class Main {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
 
-            Set<Integer> setA = map.get(a);
-            setA.add(b);
-            map.put(a, setA);
-
-            Set<Integer> setB = map.get(b);
-            setB.add(a);
-            map.put(b, setB);
+            if (H[b] > maxH[a]) {
+                maxH[a] = H[b];
+            }
+            if (H[a] > maxH[b]) {
+                maxH[b] = H[a];
+            }
         }
 
         int count = 0;
         for (int i = 1 ; i <= N ; i++) {
-            if (results[i]) {
-                Set<Integer> set = map.get(i);
-                for (Integer dist : set) {
-                    if (H[i] < H[dist]) {
-                        results[i] = false;
-                    } else {
-                        results[dist] = false;
-                    }
-                }
-                if (results[i]) {
-                    count++;
-                }
-            }
+            if (H[i] > maxH[i]) count++;
         }
 
         System.out.println(count);
