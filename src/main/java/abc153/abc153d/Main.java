@@ -12,6 +12,6 @@ public class Main {
 
         Map<Long, Long> map = new HashMap<>();
         long count = 0L;
-        
+
     }
 }
