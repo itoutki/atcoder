@@ -1,4 +1,4 @@
-package abc151.abc151.abc151c;
+package abc151.abc151c;
 
 import java.util.HashMap;
 import java.util.Map;
