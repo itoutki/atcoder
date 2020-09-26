@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Main {
 
+    // https://www.slideshare.net/iwiwi/ss-3578491
+    // https://www.slideshare.net/chokudai/union-find-49066733
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
